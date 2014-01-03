@@ -188,6 +188,7 @@
     <Resource Include="www\images\icons-png\leaf-orange.png" />
     <Resource Include="www\images\icons-png\leaf-red.png" />
     <Resource Include="www\images\icons-png\leaf-shadow.png" />
+    <Resource Include="www\images\logo.png" />
     <Content Include="www\map-icons.js" />
     <Content Include="www\jsonsql-0.1.js" />
     <Content Include="www\leaflet-dvf\css\dvf.css" />
