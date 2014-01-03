@@ -1,0 +1,363 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5DC219B5-6F8A-484C-BC3E-70C3A17D321D}</ProjectGuid>
+    <ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PhoneGapStarter1</RootNamespace>
+    <AssemblyName>PhoneGapStarter1</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <TargetFrameworkProfile>WindowsPhone71</TargetFrameworkProfile>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <SilverlightApplication>true</SilverlightApplication>
+    <SupportedCultures>
+    </SupportedCultures>
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <XapFilename>PhoneGapStarter1.xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>PhoneGapStarter1.App</SilverlightAppEntry>
+    <ValidateXaml>true</ValidateXaml>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Phone" />
+    <Reference Include="Microsoft.Phone.Interop" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Windows" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WP7GapClassLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Users\Jesse\Documents\Visual Studio 2010\Projects\TwitterPluginTest\GapLib\WP7GapClassLib.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </ApplicationDefinition>
+    <Page Include="MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="GapLib\WP7GapClassLib.dll" />
+    <Content Include="GapSourceDictionary.xml" />
+    <Resource Include="www\images\ajax-loader.gif" />
+    <Resource Include="www\images\icons-png\action-black.png" />
+    <Resource Include="www\images\icons-png\action-white.png" />
+    <Resource Include="www\images\icons-png\alert-black.png" />
+    <Resource Include="www\images\icons-png\alert-white.png" />
+    <Resource Include="www\images\icons-png\arrow-d-black.png" />
+    <Resource Include="www\images\icons-png\arrow-d-l-black.png" />
+    <Resource Include="www\images\icons-png\arrow-d-l-white.png" />
+    <Resource Include="www\images\icons-png\arrow-d-r-black.png" />
+    <Resource Include="www\images\icons-png\arrow-d-r-white.png" />
+    <Resource Include="www\images\icons-png\arrow-d-white.png" />
+    <Resource Include="www\images\icons-png\arrow-l-black.png" />
+    <Resource Include="www\images\icons-png\arrow-l-white.png" />
+    <Resource Include="www\images\icons-png\arrow-r-black.png" />
+    <Resource Include="www\images\icons-png\arrow-r-white.png" />
+    <Resource Include="www\images\icons-png\arrow-u-black.png" />
+    <Resource Include="www\images\icons-png\arrow-u-l-black.png" />
+    <Resource Include="www\images\icons-png\arrow-u-l-white.png" />
+    <Resource Include="www\images\icons-png\arrow-u-r-black.png" />
+    <Resource Include="www\images\icons-png\arrow-u-r-white.png" />
+    <Resource Include="www\images\icons-png\arrow-u-white.png" />
+    <Resource Include="www\images\icons-png\audio-black.png" />
+    <Resource Include="www\images\icons-png\audio-white.png" />
+    <Resource Include="www\images\icons-png\back-black.png" />
+    <Resource Include="www\images\icons-png\back-white.png" />
+    <Resource Include="www\images\icons-png\bars-black.png" />
+    <Resource Include="www\images\icons-png\bars-white.png" />
+    <Resource Include="www\images\icons-png\bullets-black.png" />
+    <Resource Include="www\images\icons-png\bullets-white.png" />
+    <Resource Include="www\images\icons-png\calendar-black.png" />
+    <Resource Include="www\images\icons-png\calendar-white.png" />
+    <Resource Include="www\images\icons-png\camera-black.png" />
+    <Resource Include="www\images\icons-png\camera-white.png" />
+    <Resource Include="www\images\icons-png\carat-d-black.png" />
+    <Resource Include="www\images\icons-png\carat-d-white.png" />
+    <Resource Include="www\images\icons-png\carat-l-black.png" />
+    <Resource Include="www\images\icons-png\carat-l-white.png" />
+    <Resource Include="www\images\icons-png\carat-r-black.png" />
+    <Resource Include="www\images\icons-png\carat-r-white.png" />
+    <Resource Include="www\images\icons-png\carat-u-black.png" />
+    <Resource Include="www\images\icons-png\carat-u-white.png" />
+    <Resource Include="www\images\icons-png\check-black.png" />
+    <Resource Include="www\images\icons-png\check-white.png" />
+    <Resource Include="www\images\icons-png\clock-black.png" />
+    <Resource Include="www\images\icons-png\clock-white.png" />
+    <Resource Include="www\images\icons-png\cloud-black.png" />
+    <Resource Include="www\images\icons-png\cloud-white.png" />
+    <Resource Include="www\images\icons-png\comment-black.png" />
+    <Resource Include="www\images\icons-png\comment-white.png" />
+    <Resource Include="www\images\icons-png\delete-black.png" />
+    <Resource Include="www\images\icons-png\delete-white.png" />
+    <Resource Include="www\images\icons-png\edit-black.png" />
+    <Resource Include="www\images\icons-png\edit-white.png" />
+    <Resource Include="www\images\icons-png\eye-black.png" />
+    <Resource Include="www\images\icons-png\eye-white.png" />
+    <Resource Include="www\images\icons-png\forbidden-black.png" />
+    <Resource Include="www\images\icons-png\forbidden-white.png" />
+    <Resource Include="www\images\icons-png\forward-black.png" />
+    <Resource Include="www\images\icons-png\forward-white.png" />
+    <Resource Include="www\images\icons-png\gear-black.png" />
+    <Resource Include="www\images\icons-png\gear-white.png" />
+    <Resource Include="www\images\icons-png\grid-black.png" />
+    <Resource Include="www\images\icons-png\grid-white.png" />
+    <Resource Include="www\images\icons-png\heart-black.png" />
+    <Resource Include="www\images\icons-png\heart-white.png" />
+    <Resource Include="www\images\icons-png\home-black.png" />
+    <Resource Include="www\images\icons-png\home-white.png" />
+    <Resource Include="www\images\icons-png\info-black.png" />
+    <Resource Include="www\images\icons-png\info-white.png" />
+    <Resource Include="www\images\icons-png\location-black.png" />
+    <Resource Include="www\images\icons-png\location-white.png" />
+    <Resource Include="www\images\icons-png\lock-black.png" />
+    <Resource Include="www\images\icons-png\lock-white.png" />
+    <Resource Include="www\images\icons-png\mail-black.png" />
+    <Resource Include="www\images\icons-png\mail-white.png" />
+    <Resource Include="www\images\icons-png\minus-black.png" />
+    <Resource Include="www\images\icons-png\minus-white.png" />
+    <Resource Include="www\images\icons-png\navigation-black.png" />
+    <Resource Include="www\images\icons-png\navigation-white.png" />
+    <Resource Include="www\images\icons-png\phone-black.png" />
+    <Resource Include="www\images\icons-png\phone-white.png" />
+    <Resource Include="www\images\icons-png\plus-black.png" />
+    <Resource Include="www\images\icons-png\plus-white.png" />
+    <Resource Include="www\images\icons-png\power-black.png" />
+    <Resource Include="www\images\icons-png\power-white.png" />
+    <Resource Include="www\images\icons-png\recycle-black.png" />
+    <Resource Include="www\images\icons-png\recycle-white.png" />
+    <Resource Include="www\images\icons-png\refresh-black.png" />
+    <Resource Include="www\images\icons-png\refresh-white.png" />
+    <Resource Include="www\images\icons-png\search-black.png" />
+    <Resource Include="www\images\icons-png\search-white.png" />
+    <Resource Include="www\images\icons-png\shop-black.png" />
+    <Resource Include="www\images\icons-png\shop-white.png" />
+    <Resource Include="www\images\icons-png\star-black.png" />
+    <Resource Include="www\images\icons-png\star-white.png" />
+    <Resource Include="www\images\icons-png\tag-black.png" />
+    <Resource Include="www\images\icons-png\tag-white.png" />
+    <Resource Include="www\images\icons-png\user-black.png" />
+    <Resource Include="www\images\icons-png\user-white.png" />
+    <Resource Include="www\images\icons-png\video-black.png" />
+    <Resource Include="www\images\icons-png\video-white.png" />
+    <Resource Include="www\images\icons-png\leaf-green.png" />
+    <Resource Include="www\images\icons-png\leaf-orange.png" />
+    <Resource Include="www\images\icons-png\leaf-red.png" />
+    <Resource Include="www\images\icons-png\leaf-shadow.png" />
+    <Content Include="www\map-icons.js" />
+    <Content Include="www\jsonsql-0.1.js" />
+    <Content Include="www\leaflet-dvf\css\dvf.css" />
+    <Content Include="www\leaflet-dvf\data\countryData.min.js" />
+    <Content Include="www\leaflet-dvf\data\stateData.min.js" />
+    <Content Include="www\leaflet-dvf\leaflet-dvf.js" />
+    <Content Include="www\leaflet-dvf\leaflet-dvf.markers.js" />
+    <Content Include="www\leaflet-dvf\leaflet-dvf.markers.min.js" />
+    <Content Include="www\leaflet-dvf\leaflet-dvf.min.js" />
+    <Content Include="www\gp-test-theme.css" />
+    <Content Include="www\images\icons-svg\action-black.svg" />
+    <Content Include="www\images\icons-svg\action-white.svg" />
+    <Content Include="www\images\icons-svg\alert-black.svg" />
+    <Content Include="www\images\icons-svg\alert-white.svg" />
+    <Content Include="www\images\icons-svg\arrow-d-black.svg" />
+    <Content Include="www\images\icons-svg\arrow-d-l-black.svg" />
+    <Content Include="www\images\icons-svg\arrow-d-l-white.svg" />
+    <Content Include="www\images\icons-svg\arrow-d-r-black.svg" />
+    <Content Include="www\images\icons-svg\arrow-d-r-white.svg" />
+    <Content Include="www\images\icons-svg\arrow-d-white.svg" />
+    <Content Include="www\images\icons-svg\arrow-l-black.svg" />
+    <Content Include="www\images\icons-svg\arrow-l-white.svg" />
+    <Content Include="www\images\icons-svg\arrow-r-black.svg" />
+    <Content Include="www\images\icons-svg\arrow-r-white.svg" />
+    <Content Include="www\images\icons-svg\arrow-u-black.svg" />
+    <Content Include="www\images\icons-svg\arrow-u-l-black.svg" />
+    <Content Include="www\images\icons-svg\arrow-u-l-white.svg" />
+    <Content Include="www\images\icons-svg\arrow-u-r-black.svg" />
+    <Content Include="www\images\icons-svg\arrow-u-r-white.svg" />
+    <Content Include="www\images\icons-svg\arrow-u-white.svg" />
+    <Content Include="www\images\icons-svg\audio-black.svg" />
+    <Content Include="www\images\icons-svg\audio-white.svg" />
+    <Content Include="www\images\icons-svg\back-black.svg" />
+    <Content Include="www\images\icons-svg\back-white.svg" />
+    <Content Include="www\images\icons-svg\bars-black.svg" />
+    <Content Include="www\images\icons-svg\bars-white.svg" />
+    <Content Include="www\images\icons-svg\bullets-black.svg" />
+    <Content Include="www\images\icons-svg\bullets-white.svg" />
+    <Content Include="www\images\icons-svg\calendar-black.svg" />
+    <Content Include="www\images\icons-svg\calendar-white.svg" />
+    <Content Include="www\images\icons-svg\camera-black.svg" />
+    <Content Include="www\images\icons-svg\camera-white.svg" />
+    <Content Include="www\images\icons-svg\carat-d-black.svg" />
+    <Content Include="www\images\icons-svg\carat-d-white.svg" />
+    <Content Include="www\images\icons-svg\carat-l-black.svg" />
+    <Content Include="www\images\icons-svg\carat-l-white.svg" />
+    <Content Include="www\images\icons-svg\carat-r-black.svg" />
+    <Content Include="www\images\icons-svg\carat-r-white.svg" />
+    <Content Include="www\images\icons-svg\carat-u-black.svg" />
+    <Content Include="www\images\icons-svg\carat-u-white.svg" />
+    <Content Include="www\images\icons-svg\check-black.svg" />
+    <Content Include="www\images\icons-svg\check-white.svg" />
+    <Content Include="www\images\icons-svg\clock-black.svg" />
+    <Content Include="www\images\icons-svg\clock-white.svg" />
+    <Content Include="www\images\icons-svg\cloud-black.svg" />
+    <Content Include="www\images\icons-svg\cloud-white.svg" />
+    <Content Include="www\images\icons-svg\comment-black.svg" />
+    <Content Include="www\images\icons-svg\comment-white.svg" />
+    <Content Include="www\images\icons-svg\delete-black.svg" />
+    <Content Include="www\images\icons-svg\delete-white.svg" />
+    <Content Include="www\images\icons-svg\edit-black.svg" />
+    <Content Include="www\images\icons-svg\edit-white.svg" />
+    <Content Include="www\images\icons-svg\eye-black.svg" />
+    <Content Include="www\images\icons-svg\eye-white.svg" />
+    <Content Include="www\images\icons-svg\forbidden-black.svg" />
+    <Content Include="www\images\icons-svg\forbidden-white.svg" />
+    <Content Include="www\images\icons-svg\forward-black.svg" />
+    <Content Include="www\images\icons-svg\forward-white.svg" />
+    <Content Include="www\images\icons-svg\gear-black.svg" />
+    <Content Include="www\images\icons-svg\gear-white.svg" />
+    <Content Include="www\images\icons-svg\grid-black.svg" />
+    <Content Include="www\images\icons-svg\grid-white.svg" />
+    <Content Include="www\images\icons-svg\heart-black.svg" />
+    <Content Include="www\images\icons-svg\heart-white.svg" />
+    <Content Include="www\images\icons-svg\home-black.svg" />
+    <Content Include="www\images\icons-svg\home-white.svg" />
+    <Content Include="www\images\icons-svg\info-black.svg" />
+    <Content Include="www\images\icons-svg\info-white.svg" />
+    <Content Include="www\images\icons-svg\location-black.svg" />
+    <Content Include="www\images\icons-svg\location-white.svg" />
+    <Content Include="www\images\icons-svg\lock-black.svg" />
+    <Content Include="www\images\icons-svg\lock-white.svg" />
+    <Content Include="www\images\icons-svg\mail-black.svg" />
+    <Content Include="www\images\icons-svg\mail-white.svg" />
+    <Content Include="www\images\icons-svg\minus-black.svg" />
+    <Content Include="www\images\icons-svg\minus-white.svg" />
+    <Content Include="www\images\icons-svg\navigation-black.svg" />
+    <Content Include="www\images\icons-svg\navigation-white.svg" />
+    <Content Include="www\images\icons-svg\phone-black.svg" />
+    <Content Include="www\images\icons-svg\phone-white.svg" />
+    <Content Include="www\images\icons-svg\plus-black.svg" />
+    <Content Include="www\images\icons-svg\plus-white.svg" />
+    <Content Include="www\images\icons-svg\power-black.svg" />
+    <Content Include="www\images\icons-svg\power-white.svg" />
+    <Content Include="www\images\icons-svg\recycle-black.svg" />
+    <Content Include="www\images\icons-svg\recycle-white.svg" />
+    <Content Include="www\images\icons-svg\refresh-black.svg" />
+    <Content Include="www\images\icons-svg\refresh-white.svg" />
+    <Content Include="www\images\icons-svg\search-black.svg" />
+    <Content Include="www\images\icons-svg\search-white.svg" />
+    <Content Include="www\images\icons-svg\shop-black.svg" />
+    <Content Include="www\images\icons-svg\shop-white.svg" />
+    <Content Include="www\images\icons-svg\star-black.svg" />
+    <Content Include="www\images\icons-svg\star-white.svg" />
+    <Content Include="www\images\icons-svg\tag-black.svg" />
+    <Content Include="www\images\icons-svg\tag-white.svg" />
+    <Content Include="www\images\icons-svg\user-black.svg" />
+    <Content Include="www\images\icons-svg\user-white.svg" />
+    <Content Include="www\images\icons-svg\video-black.svg" />
+    <Content Include="www\images\icons-svg\video-white.svg" />
+    <Resource Include="www\images\layers-2x.png" />
+    <Resource Include="www\images\layers.png" />
+    <Resource Include="www\images\marker-icon-2x.png" />
+    <Resource Include="www\images\marker-icon.png" />
+    <Resource Include="www\images\marker-shadow.png" />
+    <Resource Include="www\images\sprites.png" />
+    <Content Include="www\jquery-1.10.2.js" />
+    <Content Include="www\jquery.mobile-1.4.0.css" />
+    <Content Include="www\jquery.mobile-1.4.0.js" />
+    <Content Include="www\jquery.mobile.icons-1.4.0.css" />
+    <Content Include="www\jquery.mobile.structure-1.4.0.css" />
+    <Content Include="www\jquery.mobile.theme-1.4.0.css" />
+    <Content Include="www\leaflet.css" />
+    <Content Include="www\leaflet.js" />
+    <Content Include="www\phonegap-1.4.1.js" />
+    <Content Include="www\stopgap.js" />
+    <None Include="ManifestProcessor.js" />
+    <Content Include="www\index.html">
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="Properties\AppManifest.xml">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\WMAppManifest.xml">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ApplicationIcon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Background.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SplashScreenImage.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Plugins\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions />
+  <PropertyGroup>
+    <PreBuildEvent>CScript "$(ProjectDir)/ManifestProcessor.js" "$(ProjectPath)"</PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>
