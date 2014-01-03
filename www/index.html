@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>Lookmap</title>
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+	<link rel="stylesheet" href="jquery.mobile-1.4.0.css"/>
+    <!--http://themeroller.jquerymobile.com/-->
+    <link rel="stylesheet" href="gp-test-theme.css"/>
+    <link rel="stylesheet" href="leaflet.css"/>
+    <link rel="stylesheet" href="leaflet-dvf/css/dvf.css"/>
+           
+    <script type="text/javascript" charset="utf-8" src="jquery-1.10.2.js"></script> 
+    <script type="text/javascript" charset="utf-8" src="jquery.mobile-1.4.0.js"></script>
+    <script type="text/javascript" charset="utf-8" src="phonegap-1.4.1.js"></script>
+    <!--<script type="text/javascript" charset="utf-8" src="stopgap.js"></script>-->
+    <script type="text/javascript" src="leaflet.js"></script>
+    <script type="text/javascript" src="map-icons.js"></script>
+    <script type="text/javascript" src="jsonsql-0.1.js"></script>
+    <script type="text/javascript" src="leaflet-dvf/leaflet-dvf.js"></script>
+    <script type="text/javascript" src="leaflet-dvf/leaflet-dvf.markers.js"></script>
+    <script type="text/javascript">
+        document.addEventListener("deviceready", onDeviceReady, false);
+
+        // once the device ready event fires, you can safely do your thing! -jm
+        function onDeviceReady() {
+            console.log("onDeviceReady. You should see this message in Visual Studio's output window.");
+            
+            $.ajax({
+                url: "http://localhost:3000/restaurants.json",
+                beforeSend: function (xhr) {
+                    xhr.overrideMimeType("application/json");
+                }
+            })
+                    .done(function (data) {
+
+                        var addType = function (json, iconType) {
+                            var layer = new L.LayerGroup();
+                            for (var j = 0; j < json.length; j++) {
+                                var longtitude = json[j].longitude;
+                                var latitude = json[j].latitude;
+                                var name = json[j].name;
+                                if (iconType !== undefined) {
+                                    L.marker([latitude, longtitude], { icon: iconType }).bindPopup(name).addTo(layer);
+                                }
+                                else {
+                                    L.marker([latitude, longtitude]).bindPopup(name).addTo(layer);
+                                }
+                            }
+                            return layer;
+                        };
+                        var cloudMadeAttribution = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>'
+                        var cloudmadeUrl = 'http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/{styleId}/256/{z}/{x}/{y}.png';
+                        var minimal = L.tileLayer(cloudmadeUrl, { styleId: 22677, attribution: cloudMadeAttribution }),
+                            midnight = L.tileLayer(cloudmadeUrl, { styleId: 999, attribution: cloudMadeAttribution });
+
+                        var MarkerIcon = L.Icon.extend({
+                            options: {
+                                shadowUrl: 'images/icons-png/leaf-shadow.png',
+                                iconSize: [38, 95],
+                                shadowSize: [50, 64],
+                                iconAnchor: [22, 94],
+                                shadowAnchor: [4, 62],
+                                popupAnchor: [-3, -76]
+                            }
+                        });
+
+                        var restaurantMarkerIcon = new MarkerIcon({ iconUrl: 'images/icons-png/leaf-red.png' });
+                        var pubsMarkerIcon = new MarkerIcon({ iconUrl: 'images/icons-png/leaf-green.png' });
+                        var clubsMarkerIcon = new MarkerIcon({ iconUrl: 'images/icons-png/leaf-orange.png' });
+
+                        var restaurantsLayer = addType(jsonsql.query("select * from json where (type =='Restauracje')", data), restaurantMarkerIcon);
+                        var pubsLayer = addType(jsonsql.query("select * from json where (type =='Puby')", data), pubsMarkerIcon);
+                        var clubsLayer = addType(jsonsql.query("select * from json where (type =='Kluby')", data), clubsMarkerIcon);
+                        var servicesLayer = addType(jsonsql.query("select * from json where (type =='Uslugi')", data));
+                        var entertainmentLayer = addType(jsonsql.query("select * from json where (type =='Rozrywka')", data));
+
+                        var map = L.map('map', {
+                            center: [50.05185, 19.96195],
+                            zoom: 13,
+                            layers: [minimal, restaurantsLayer, pubsLayer, clubsLayer, servicesLayer, entertainmentLayer]
+                        });
+
+                        var baseLayers = {
+                            "Minimalny": minimal,
+                            "Widok nocny": midnight
+                        };
+
+                        var overlays = {
+                            "Restauracje": restaurantsLayer,
+                            "Puby": pubsLayer,
+                            "Kluby": clubsLayer,
+                            "Usługi": servicesLayer,
+                            "Rozrywka": entertainmentLayer
+                        };
+                        L.control.layers(baseLayers, overlays).addTo(map);
+                    });
+
+        }
+    </script>
+</head>
+    <body>
+        <div id="home" data-role="page">
+            <div data-role="header">
+                Mapa
+            </div>
+            <div data-role="content">
+                <div id="map"></div>
+            </div>
+        </div>
+    </body>
+</html>
