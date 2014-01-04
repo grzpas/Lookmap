@@ -14,6 +14,7 @@
     <script type="text/javascript" src="leaflet.js"></script>
     <script type="text/javascript" src="map-icons.js"></script>
     <script type="text/javascript" src="jsonsql-0.1.js"></script>
+    <script type="text/javascript" src="index.js"></script>
     <script type="text/javascript">
         document.addEventListener("deviceready", onDeviceReady, false);
 
@@ -35,7 +36,7 @@
                                 var latitude = json[j].latitude;
                                 var name = json[j].name;
                                 if (iconType !== undefined) {
-                                   var geoLink = "<a href='geo:37.786971,-122.399677;u=35'>Wikimedia</a>";
+                                    var geoLink = "<a href='geo:{long},{lat}'>{n}</a>".format({ long: longtitude, lat: latitude, n: name});
                                    L.marker([latitude, longtitude], { icon: iconType }).bindPopup(geoLink).addTo(layer);
                                 }
                                 else {

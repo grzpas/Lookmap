@@ -192,6 +192,7 @@
     <Resource Include="www\images\logo.png" />
     <Content Include="www\config.xml" />
     <Content Include="www\index.css" />
+    <Content Include="www\index.js" />
     <Content Include="www\map-icons.js" />
     <Content Include="www\jsonsql-0.1.js" />
     <Content Include="www\images\icons-svg\action-black.svg" />
