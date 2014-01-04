@@ -28,67 +28,68 @@
                 }
             })
                     .done(function (data) {
-                    var addType = function (json, iconType) {
-                        var layer = new L.LayerGroup();
-                        for (var j = 0; j < json.length; j++) {
-                            var longtitude = json[j].longitude;
-                            var latitude = json[j].latitude;
-                            var name = json[j].name;
-                            if (iconType !== undefined) {
-                                L.marker([latitude, longtitude], { icon: iconType }).bindPopup(name).addTo(layer);
+                        var addType = function (json, iconType) {
+                            var layer = new L.LayerGroup();
+                            for (var j = 0; j < json.length; j++) {
+                                var longtitude = json[j].longitude;
+                                var latitude = json[j].latitude;
+                                var name = json[j].name;
+                                if (iconType !== undefined) {
+                                   var geoLink = "<a href='geo:37.786971,-122.399677;u=35'>Wikimedia</a>";
+                                   L.marker([latitude, longtitude], { icon: iconType }).bindPopup(geoLink).addTo(layer);
+                                }
+                                else {
+                                    L.marker([latitude, longtitude]).bindPopup(name).addTo(layer);
+                                }
                             }
-                            else {
-                                L.marker([latitude, longtitude]).bindPopup(name).addTo(layer);
-                            }
-                        }
-                        return layer;
-                    };
-                    var cloudMadeAttribution = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>'
-                    var cloudmadeUrl = 'http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/{styleId}/256/{z}/{x}/{y}.png';
-                    var minimal = L.tileLayer(cloudmadeUrl, { styleId: 22677, attribution: cloudMadeAttribution }),
+                            return layer;
+                        };
+                        var cloudMadeAttribution = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>'
+                        var cloudmadeUrl = 'http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/{styleId}/256/{z}/{x}/{y}.png';
+                        var minimal = L.tileLayer(cloudmadeUrl, { styleId: 22677, attribution: cloudMadeAttribution }),
                         midnight = L.tileLayer(cloudmadeUrl, { styleId: 999, attribution: cloudMadeAttribution });
 
-                    var MarkerIcon = L.Icon.extend({
-                        options: {
-                            shadowUrl: 'images/icons-png/leaf-shadow.png',
-                            iconSize: [38, 95],
-                            shadowSize: [50, 64],
-                            iconAnchor: [22, 94],
-                            shadowAnchor: [4, 62],
-                            popupAnchor: [-3, -76]
-                        }
+                        var MarkerIcon = L.Icon.extend({
+                            options: {
+                                shadowUrl: 'images/icons-png/leaf-shadow.png',
+                                iconSize: [38, 95],
+                                shadowSize: [50, 64],
+                                iconAnchor: [22, 94],
+                                shadowAnchor: [4, 62],
+                                popupAnchor: [-3, -76]
+                            }
+                        });
+
+                        var restaurantMarkerIcon = new MarkerIcon({ iconUrl: 'images/icons-png/leaf-red.png' });
+                        var pubsMarkerIcon = new MarkerIcon({ iconUrl: 'images/icons-png/leaf-green.png' });
+                        var clubsMarkerIcon = new MarkerIcon({ iconUrl: 'images/icons-png/leaf-orange.png' });
+
+                        var restaurantsLayer = addType(jsonsql.query("select * from json where (type =='Restauracje')", data), restaurantMarkerIcon);
+                        var pubsLayer = addType(jsonsql.query("select * from json where (type =='Puby')", data), pubsMarkerIcon);
+                        var clubsLayer = addType(jsonsql.query("select * from json where (type =='Kluby')", data), clubsMarkerIcon);
+                        var servicesLayer = addType(jsonsql.query("select * from json where (type =='Uslugi')", data));
+                        var entertainmentLayer = addType(jsonsql.query("select * from json where (type =='Rozrywka')", data));
+
+                        var map = L.map('map', {
+                            center: [50.05185, 19.96195],
+                            zoom: 13,
+                            layers: [minimal, restaurantsLayer, pubsLayer, clubsLayer, servicesLayer, entertainmentLayer]
+                        });
+
+                        var baseLayers = {
+                            "Minimalny": minimal,
+                            "Widok nocny": midnight
+                        };
+
+                        var overlays = {
+                            "Restauracje": restaurantsLayer,
+                            "Puby": pubsLayer,
+                            "Kluby": clubsLayer,
+                            "Usługi": servicesLayer,
+                            "Rozrywka": entertainmentLayer
+                        };
+                        L.control.layers(baseLayers, overlays).addTo(map);
                     });
-
-                    var restaurantMarkerIcon = new MarkerIcon({ iconUrl: 'images/icons-png/leaf-red.png' });
-                    var pubsMarkerIcon = new MarkerIcon({ iconUrl: 'images/icons-png/leaf-green.png' });
-                    var clubsMarkerIcon = new MarkerIcon({ iconUrl: 'images/icons-png/leaf-orange.png' });
-
-                    var restaurantsLayer = addType(jsonsql.query("select * from json where (type =='Restauracje')", data), restaurantMarkerIcon);
-                    var pubsLayer = addType(jsonsql.query("select * from json where (type =='Puby')", data), pubsMarkerIcon);
-                    var clubsLayer = addType(jsonsql.query("select * from json where (type =='Kluby')", data), clubsMarkerIcon);
-                    var servicesLayer = addType(jsonsql.query("select * from json where (type =='Uslugi')", data));
-                    var entertainmentLayer = addType(jsonsql.query("select * from json where (type =='Rozrywka')", data));
-
-                    var map = L.map('map', {
-                        center: [50.05185, 19.96195],
-                        zoom: 13,
-                        layers: [minimal, restaurantsLayer, pubsLayer, clubsLayer, servicesLayer, entertainmentLayer]
-                    });
-
-                    var baseLayers = {
-                        "Minimalny": minimal,
-                        "Widok nocny": midnight
-                    };
-
-                    var overlays = {
-                        "Restauracje": restaurantsLayer,
-                        "Puby": pubsLayer,
-                        "Kluby": clubsLayer,
-                        "Usługi": servicesLayer,
-                        "Rozrywka": entertainmentLayer
-                    };
-                    L.control.layers(baseLayers, overlays).addTo(map);
-                });
                
         }
     </script>
