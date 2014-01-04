@@ -22,7 +22,7 @@
             console.log(device.name);
 
             $.ajax({
-                url: "restaurants.json",
+                url: "http://89.74.87.121:3000/restaurants.json",
                 beforeSend: function (xhr) {
                     xhr.overrideMimeType("application/json");
                 }
