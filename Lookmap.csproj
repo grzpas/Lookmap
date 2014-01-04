@@ -83,6 +83,7 @@
   <ItemGroup>
     <Content Include="GapLib\WP7GapClassLib.dll" />
     <Content Include="GapSourceDictionary.xml" />
+    <None Include="www\restaurants.json" />
     <Resource Include="www\images\ajax-loader.gif" />
     <Resource Include="www\images\icons-png\action-black.png" />
     <Resource Include="www\images\icons-png\action-white.png" />
