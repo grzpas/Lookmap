@@ -191,9 +191,9 @@
     <Resource Include="www\images\icons-png\leaf-shadow.png" />
     <Resource Include="www\images\logo.png" />
     <Content Include="www\config.xml" />
+    <Content Include="www\index.css" />
     <Content Include="www\map-icons.js" />
     <Content Include="www\jsonsql-0.1.js" />
-    <Content Include="www\gp-test-theme.css" />
     <Content Include="www\images\icons-svg\action-black.svg" />
     <Content Include="www\images\icons-svg\action-white.svg" />
     <Content Include="www\images\icons-svg\alert-black.svg" />
