@@ -741,4 +741,6 @@ button[disabled],
 	outline-style: auto;
 }
 
-#map { height: 500px; }		
+#map {
+    height: 100%;
+}
