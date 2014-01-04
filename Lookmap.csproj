@@ -192,13 +192,6 @@
     <Content Include="www\config.xml" />
     <Content Include="www\map-icons.js" />
     <Content Include="www\jsonsql-0.1.js" />
-    <Content Include="www\leaflet-dvf\css\dvf.css" />
-    <Content Include="www\leaflet-dvf\data\countryData.min.js" />
-    <Content Include="www\leaflet-dvf\data\stateData.min.js" />
-    <Content Include="www\leaflet-dvf\leaflet-dvf.js" />
-    <Content Include="www\leaflet-dvf\leaflet-dvf.markers.js" />
-    <Content Include="www\leaflet-dvf\leaflet-dvf.markers.min.js" />
-    <Content Include="www\leaflet-dvf\leaflet-dvf.min.js" />
     <Content Include="www\gp-test-theme.css" />
     <Content Include="www\images\icons-svg\action-black.svg" />
     <Content Include="www\images\icons-svg\action-white.svg" />
