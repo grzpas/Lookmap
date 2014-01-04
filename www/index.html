@@ -35,7 +35,7 @@
                                 var longtitude = json[j].longitude;
                                 var latitude = json[j].latitude;
                                 var name = json[j].name;
-                                var geoLink = "<a href='geo:{long},{lat}'>{n}</a>".format({ long: longtitude, lat: latitude, n: name });
+                                var geoLink = "<a href='geo:{long},{lat}'>[{long},{lat}] - {n}</a>".format({ long: longtitude, lat: latitude, n: name });
                                 if (iconType !== undefined) {
 
                                     console.log(geoLink);
