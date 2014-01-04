@@ -307,7 +307,7 @@
     <Content Include="www\jquery.mobile.theme-1.4.0.css" />
     <Content Include="www\leaflet.css" />
     <Content Include="www\leaflet.js" />
-    <Content Include="www\phonegap-1.4.1.js" />
+    <Content Include="www\phonegap.js" />
     <Content Include="www\stopgap.js" />
     <None Include="ManifestProcessor.js" />
     <Content Include="www\index.html">
