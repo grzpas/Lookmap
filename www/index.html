@@ -84,8 +84,12 @@
 
                 }
 
+            
+
                 function onSuccess(position) {
-                    $('#myLocation').innerHTML = "[" + position.coords.latitude + ", " + position.coords.longitude + "]";
+                    var stringPosition = "[" + position.coords.latitude + ", " + position.coords.longitude + "]";
+                    navigator.notification.alert(stringPosition, null, "Info", "Ok");
+                    $('#myLocation').innerHTML = stringPosition;
                 }
 
                 // clear the watch that was started earlier
