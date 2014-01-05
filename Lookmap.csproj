@@ -310,8 +310,8 @@
     <Content Include="www\jquery.mobile.icons-1.4.0.css" />
     <Content Include="www\jquery.mobile.structure-1.4.0.css" />
     <Content Include="www\jquery.mobile.theme-1.4.0.css" />
-    <Content Include="www\leaflet.css" />
     <Content Include="www\leaflet.js" />
+    <Content Include="www\leaflet.css" />
     <Content Include="www\phonegap.js" />
     <Content Include="www\stopgap.js" />
     <None Include="ManifestProcessor.js" />

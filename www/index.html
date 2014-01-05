@@ -30,6 +30,10 @@
                 }
             })
                     .done(function (data) {
+
+                        navigator.notification.alert(
+                        'This is a demo of Lookmap', null, 'Notification', 'Done');
+                        
                         var addType = function (json, iconType) {
                             var layer = new L.LayerGroup();
                             for (var j = 0; j < json.length; j++) {
@@ -60,7 +64,7 @@
 
                         var map = L.map('map', {
                             center: [50.05185, 19.96195],
-                            zoom: 8,
+                            zoom: 10,
                             layers: [minimal, restaurantsLayer, pubsLayer, clubsLayer, servicesLayer, entertainmentLayer]
                         });
 
