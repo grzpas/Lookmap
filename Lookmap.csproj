@@ -190,10 +190,17 @@
     <Resource Include="www\images\icons-png\leaf-red.png" />
     <Resource Include="www\images\icons-png\leaf-shadow.png" />
     <Resource Include="www\images\logo.png" />
-    <Content Include="www\config.xml" />
+    <Content Include="www\config.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Resource Include="www\images\icons-png\icons.png" />
     <Content Include="www\index.css" />
     <Content Include="www\index.js" />
-    <Content Include="www\map-icons.js" />
+    <Resource Include="www\leaflet-plugins\sprite\blank.png" />
+    <Content Include="www\leaflet-plugins\sprite\leaflet.css.min.js" />
+    <Content Include="www\leaflet-plugins\sprite\leaflet.sprite.js" />
+    <Content Include="www\leaflet-plugins\sprite\leaflet.sprite.min.js" />
+    <Resource Include="www\leaflet-plugins\sprite\sprite.png" />
     <Content Include="www\jsonsql-0.1.js" />
     <Content Include="www\images\icons-svg\action-black.svg" />
     <Content Include="www\images\icons-svg\action-white.svg" />

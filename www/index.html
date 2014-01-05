@@ -9,10 +9,11 @@
     <link rel="stylesheet" href="leaflet.css"/>
     <script type="text/javascript" src="jquery-1.10.2.js"></script> 
     <script type="text/javascript" src="jquery.mobile-1.4.0.js"></script>
-    <script type="text/javascript" src="phonegap.js"></script>
-    <!--<script type="text/javascript" src="stopgap.js"></script>-->
+    <!--<script type="text/javascript" src="phonegap.js"></script>-->
+    <script type="text/javascript" src="stopgap.js"></script>
     <script type="text/javascript" src="leaflet.js"></script>
-    <script type="text/javascript" src="map-icons.js"></script>
+    <script type="text/javascript" src="leaflet-plugins/sprite/leaflet.css.min.js"></script>
+    <script type="text/javascript" src="leaflet-plugins/sprite/leaflet.sprite.js"></script>
     <script type="text/javascript" src="jsonsql-0.1.js"></script>
     <script type="text/javascript" src="index.js"></script>
     <script type="text/javascript">
@@ -35,9 +36,8 @@
                                 var longtitude = json[j].longitude;
                                 var latitude = json[j].latitude;
                                 var name = json[j].name;
-                                var geoLink = "<a href='geo:0.0,0.0'>[{long},{lat}] - {n}</a>".format({ long: longtitude, lat: latitude, n: name });
+                                var geoLink = "<a href='geo:0.0,0.0'>[{longtitude},{latitude}] - {n}</a>".format({ longtitude: longtitude, latitude: latitude, n: name });
                                 if (iconType !== undefined) {
-
                                     console.log(geoLink);
                                     L.marker([latitude, longtitude], { icon: iconType }).bindPopup(geoLink).addTo(layer);
                                 }
@@ -52,26 +52,12 @@
                         var minimal = L.tileLayer(cloudmadeUrl, { styleId: 22677, attribution: cloudMadeAttribution }),
                         midnight = L.tileLayer(cloudmadeUrl, { styleId: 999, attribution: cloudMadeAttribution });
 
-                        var MarkerIcon = L.Icon.extend({
-                            options: {
-                                shadowUrl: 'images/icons-png/leaf-shadow.png',
-                                iconSize: [38, 95],
-                                shadowSize: [50, 64],
-                                iconAnchor: [22, 94],
-                                shadowAnchor: [4, 62],
-                                popupAnchor: [-3, -76]
-                            }
-                        });
 
-                        var restaurantMarkerIcon = new MarkerIcon({ iconUrl: 'images/icons-png/leaf-red.png' });
-                        var pubsMarkerIcon = new MarkerIcon({ iconUrl: 'images/icons-png/leaf-green.png' });
-                        var clubsMarkerIcon = new MarkerIcon({ iconUrl: 'images/icons-png/leaf-orange.png' });
-
-                        var restaurantsLayer = addType(jsonsql.query("select * from json where (type =='Restauracje')", data), restaurantMarkerIcon);
-                        var pubsLayer = addType(jsonsql.query("select * from json where (type =='Puby')", data), pubsMarkerIcon);
-                        var clubsLayer = addType(jsonsql.query("select * from json where (type =='Kluby')", data), clubsMarkerIcon);
-                        var servicesLayer = addType(jsonsql.query("select * from json where (type =='Uslugi')", data));
-                        var entertainmentLayer = addType(jsonsql.query("select * from json where (type =='Rozrywka')", data));
+                        var restaurantsLayer = addType(jsonsql.query("select * from json where (type =='Restauracje')", data), L.spriteIcon("red"));
+                        var pubsLayer = addType(jsonsql.query("select * from json where (type =='Puby')", data), L.spriteIcon("green"));
+                        var clubsLayer = addType(jsonsql.query("select * from json where (type =='Kluby')", data), L.spriteIcon("orange"));
+                        var servicesLayer = addType(jsonsql.query("select * from json where (type =='Uslugi')", data), L.spriteIcon("purple"));
+                        var entertainmentLayer = addType(jsonsql.query("select * from json where (type =='Rozrywka')", data), L.spriteIcon("blue"));
 
                         var map = L.map('map', {
                             center: [50.05185, 19.96195],
@@ -107,4 +93,7 @@
             </div>
         </div>
     </body>
+    <script type="text/javascript">
+        StopGap();
+    </script>
 </html>
