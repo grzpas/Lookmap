@@ -40,7 +40,7 @@
                                 var longtitude = json[j].longitude;
                                 var latitude = json[j].latitude;
                                 var name = json[j].name;
-                                var geoLink = "<a href='geo:{longtitude},{latitude}'>{n}</a>".format({ longtitude: longtitude, latitude: latitude, n: name });
+                                var geoLink = "<a href='geo:{latitude},{longtitude}'>{n}</a>".format({ longtitude: longtitude, latitude: latitude, n: name });
                                 if (iconType !== undefined) {
                                     L.marker([latitude, longtitude], { icon: iconType }).bindPopup(geoLink).addTo(layer);
                                 }
