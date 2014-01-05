@@ -7,13 +7,13 @@
     <link rel="stylesheet" href="jquery.mobile-1.4.0.css"/>
     <link rel="stylesheet" href="index.css"/>
     <link rel="stylesheet" href="leaflet.css"/>
+    <link rel="stylesheet" href="leaflet-plugins/awesome-markers/leaflet.awesome-markers.css">
     <script type="text/javascript" src="jquery-1.10.2.js"></script> 
     <script type="text/javascript" src="jquery.mobile-1.4.0.js"></script>
     <script type="text/javascript" src="phonegap.js"></script>
     <!--<script type="text/javascript" src="stopgap.js"></script>-->
     <script type="text/javascript" src="leaflet.js"></script>
-    <script type="text/javascript" src="leaflet-plugins/sprite/leaflet.css.min.js"></script>
-    <script type="text/javascript" src="leaflet-plugins/sprite/leaflet.sprite.js"></script>
+    <script type="text/javascript" src="leaflet-plugins/awesome-markers/leaflet.awesome-markers.js"></script>
     <script type="text/javascript" src="jsonsql-0.1.js"></script>
     <script type="text/javascript" src="index.js"></script>
     <script type="text/javascript">
@@ -56,11 +56,11 @@
                         midnight = L.tileLayer(cloudmadeUrl, { styleId: 999, attribution: cloudMadeAttribution });
 
 
-                        var restaurantsLayer = addType(jsonsql.query("select * from json where (type =='Restauracje')", data), L.spriteIcon("red"));
-                        var pubsLayer = addType(jsonsql.query("select * from json where (type =='Puby')", data), L.spriteIcon("green"));
-                        var clubsLayer = addType(jsonsql.query("select * from json where (type =='Kluby')", data), L.spriteIcon("orange"));
-                        var servicesLayer = addType(jsonsql.query("select * from json where (type =='Uslugi')", data), L.spriteIcon("purple"));
-                        var entertainmentLayer = addType(jsonsql.query("select * from json where (type =='Rozrywka')", data));
+                        var restaurantsLayer = addType(jsonsql.query("select * from json where (type =='Restauracje')", data), L.AwesomeMarkers.icon({icon: 'spinner', prefix: 'fa', markerColor: 'red', spin:true}));
+                        var pubsLayer = addType(jsonsql.query("select * from json where (type =='Puby')", data), L.AwesomeMarkers.icon({ icon: 'coffee', prefix: 'fa', markerColor: 'red', iconColor: '#f28f82' }));
+                        var clubsLayer = addType(jsonsql.query("select * from json where (type =='Kluby')", data), L.AwesomeMarkers.icon({ icon: 'cog', prefix: 'fa', markerColor: 'purple', iconColor: 'black' }));
+                        var servicesLayer = addType(jsonsql.query("select * from json where (type =='Uslugi')", data), L.AwesomeMarkers.icon({ icon: 'glass', prefix: 'fa', markerColor: 'green' }));
+                        var entertainmentLayer = addType(jsonsql.query("select * from json where (type =='Rozrywka')", data), L.AwesomeMarkers.icon({ icon: 'shopping-cart', prefix: 'fa', markerColor: 'blue' }));
 
                         var map = L.map('map', {
                             center: [50.05185, 19.96195],
