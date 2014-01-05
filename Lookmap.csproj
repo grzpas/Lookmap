@@ -315,6 +315,17 @@
     <Content Include="www\leaflet-plugins\awesome-markers\leaflet.awesome-markers.css" />
     <Content Include="www\leaflet-plugins\awesome-markers\leaflet.awesome-markers.js" />
     <Content Include="www\leaflet-plugins\awesome-markers\leaflet.awesome-markers.min.js" />
+    <Resource Include="www\leaflet-plugins\locatecontrol\images\locate.png" />
+    <Content Include="www\leaflet-plugins\locatecontrol\images\locate.svg" />
+    <Resource Include="www\leaflet-plugins\locatecontrol\images\locate_alt.png" />
+    <Content Include="www\leaflet-plugins\locatecontrol\images\locate_alt.svg" />
+    <Resource Include="www\leaflet-plugins\locatecontrol\images\locate_touch.png" />
+    <Resource Include="www\leaflet-plugins\locatecontrol\images\locate_touch_alt.png" />
+    <Resource Include="www\leaflet-plugins\locatecontrol\images\spinner.gif" />
+    <Content Include="www\leaflet-plugins\locatecontrol\L.Control.Locate.0.5.css" />
+    <Content Include="www\leaflet-plugins\locatecontrol\L.Control.Locate.css" />
+    <Content Include="www\leaflet-plugins\locatecontrol\L.Control.Locate.ie.css" />
+    <Content Include="www\leaflet-plugins\locatecontrol\L.Control.Locate.js" />
     <Content Include="www\leaflet.js" />
     <Content Include="www\leaflet.css" />
     <Content Include="www\phonegap.js" />
