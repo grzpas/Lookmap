@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="leaflet.css"/>
     <script type="text/javascript" src="jquery-1.10.2.js"></script> 
     <script type="text/javascript" src="jquery.mobile-1.4.0.js"></script>
-    <script type="text/javascript" src="phonegap.js"></script>
-    <!--<script type="text/javascript" src="stopgap.js"></script>-->
+    <!--<script type="text/javascript" src="phonegap.js"></script>-->
+    <script type="text/javascript" src="stopgap.js"></script>
     <script type="text/javascript" src="leaflet.js"></script>
     <script type="text/javascript" src="leaflet-plugins/sprite/leaflet.css.min.js"></script>
     <script type="text/javascript" src="leaflet-plugins/sprite/leaflet.sprite.js"></script>
@@ -24,7 +24,7 @@
             console.log(device.name);
 
             $.ajax({
-                url: "restaurants.json",
+                url: "http://89.74.87.121:3000/restaurants.json",
                 beforeSend: function (xhr) {
                     xhr.overrideMimeType("application/json");
                 }
@@ -39,10 +39,10 @@
                                 var geoLink = "<a href='geo:0.0,0.0'>[{longtitude},{latitude}] - {n}</a>".format({ longtitude: longtitude, latitude: latitude, n: name });
                                 if (iconType !== undefined) {
                                     console.log(geoLink);
-                                    L.marker([latitude, longtitude], { icon: iconType }).bindPopup(geoLink).addTo(layer);
+                                    L.marker([latitude, longtitude], { icon: iconType }).bindPopup(name).addTo(layer);
                                 }
                                 else {
-                                    L.marker([latitude, longtitude]).bindPopup(geoLink).addTo(layer);
+                                    L.marker([latitude, longtitude]).bindPopup(name).addTo(layer);
                                 }
                             }
                             return layer;
@@ -93,7 +93,7 @@
             </div>
         </div>
     </body>
-    <!--<script type="text/javascript">
+    <script type="text/javascript">
         StopGap();
-    </script>-->
+    </script>
 </html>
