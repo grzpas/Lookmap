@@ -8,12 +8,14 @@
     <link rel="stylesheet" href="index.css"/>
     <link rel="stylesheet" href="leaflet.css"/>
     <link rel="stylesheet" href="leaflet-plugins/awesome-markers/leaflet.awesome-markers.css">
+    <link rel="stylesheet" href="leaflet-plugins/locatecontrol/L.Control.Locate.css" />
     <script type="text/javascript" src="jquery-1.10.2.js"></script> 
     <script type="text/javascript" src="jquery.mobile-1.4.0.js"></script>
     <script type="text/javascript" src="phonegap.js"></script>
     <!--<script type="text/javascript" src="stopgap.js"></script>-->
     <script type="text/javascript" src="leaflet.js"></script>
     <script type="text/javascript" src="leaflet-plugins/awesome-markers/leaflet.awesome-markers.js"></script>
+    <script type="text/javascript" src="leaflet-plugins/locatecontrol/L.Control.Locate.js" ></script>
     <script type="text/javascript" src="jsonsql-0.1.js"></script>
     <script type="text/javascript" src="index.js"></script>
     <script type="text/javascript">
@@ -24,7 +26,7 @@
             console.log(device.name);
 
             var options = { enableHighAccuracy: true };
-            watchID = navigator.geolocation.watchPosition(onSuccess, onError, options);
+            watchID = navigator.geolocation.watchPosition(onWatchPositionSuccess, onWatchPositionError, options);
 
             $.ajax({
                 url: "restaurants.json",
@@ -67,6 +69,8 @@
                             layers: [minimal, restaurantsLayer, pubsLayer, clubsLayer, servicesLayer, entertainmentLayer]
                         });
 
+                        L.control.locate().addTo(map);
+
                         var baseLayers = {
                             "Minimalny": minimal,
                             "Widok nocny": midnight
@@ -84,11 +88,8 @@
 
                 }
 
-            
-
-                function onSuccess(position) {
+                function onWatchPositionSuccess(position) {
                     var stringPosition = "[" + position.coords.latitude + ", " + position.coords.longitude + "]";
-                    navigator.notification.alert(stringPosition, null, "Info", "Ok");
                     var element = document.getElementById('geolocation');
                     element.innerHTML = stringPosition;
                 }
@@ -104,7 +105,7 @@
 
                 // onError Callback receives a PositionError object
                 //
-                function onError(error) {
+                function onWatchPositionError(error) {
                     navigator.notification.alert(
                         error.message, null, 'Error', 'Ok');
                 }
@@ -116,7 +117,7 @@
                 <div id="map"></div>
             </div>
             <div data-role="footer">
-                <p id="geolocation">Sprawdzanie lokalizacji...</p>
+                <h3 id="geolocation">Sprawdzanie lokalizacji...</h3>
             </div>
         </div>
     </body>
