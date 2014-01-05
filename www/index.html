@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="leaflet.css"/>
     <script type="text/javascript" src="jquery-1.10.2.js"></script> 
     <script type="text/javascript" src="jquery.mobile-1.4.0.js"></script>
-    <!--<script type="text/javascript" src="phonegap.js"></script>-->
-    <script type="text/javascript" src="stopgap.js"></script>
+    <script type="text/javascript" src="phonegap.js"></script>
+    <!--<script type="text/javascript" src="stopgap.js"></script>-->
     <script type="text/javascript" src="leaflet.js"></script>
     <script type="text/javascript" src="leaflet-plugins/sprite/leaflet.css.min.js"></script>
     <script type="text/javascript" src="leaflet-plugins/sprite/leaflet.sprite.js"></script>
@@ -24,7 +24,7 @@
             console.log(device.name);
 
             $.ajax({
-                url: "http://89.74.87.121:3000/restaurants.json",
+                url: "restaurants.json",
                 beforeSend: function (xhr) {
                     xhr.overrideMimeType("application/json");
                 }
@@ -85,15 +85,15 @@
 </head>
     <body>
         <div id="home" data-role="page">
-            <div data-role="header">
+            <!--<div data-role="header">
                  <a href="#dialogpage" data-rel="dialog" data-icon="user">Settings</a>
-            </div>
+            </div>-->
             <div data-role="content">
                 <div id="map"></div>
             </div>
         </div>
     </body>
-    <script type="text/javascript">
+    <!--<script type="text/javascript">
         StopGap();
-    </script>
+    </script>-->
 </html>
