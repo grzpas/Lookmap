@@ -85,8 +85,7 @@
                 }
 
                 function onSuccess(position) {
-                    // $('#myLocation').innerHTML
-                    navigator.notification.alert("[" + position.coords.latitude + ", " + position.coords.longitude + "]", null, "Info", "Ok");
+                    $('#myLocation').innerHTML = "[" + position.coords.latitude + ", " + position.coords.longitude + "]";
                 }
 
                 // clear the watch that was started earlier
