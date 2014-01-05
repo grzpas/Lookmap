@@ -36,9 +36,8 @@
                                 var longtitude = json[j].longitude;
                                 var latitude = json[j].latitude;
                                 var name = json[j].name;
-                                var geoLink = "<a href='geo:0.0,0.0'>[{longtitude},{latitude}] - {n}</a>".format({ longtitude: longtitude, latitude: latitude, n: name });
+                                //var geoLink = "<a href='geo:0.0,0.0'>[{longtitude},{latitude}] - {n}</a>".format({ longtitude: longtitude, latitude: latitude, n: name });
                                 if (iconType !== undefined) {
-                                    console.log(geoLink);
                                     L.marker([latitude, longtitude], { icon: iconType }).bindPopup(name).addTo(layer);
                                 }
                                 else {
@@ -49,7 +48,7 @@
                         };
                         var cloudMadeAttribution = 'CloudMade';
                         var cloudmadeUrl = 'http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/{styleId}/256/{z}/{x}/{y}.png';
-                        var minimal = L.tileLayer(cloudmadeUrl, { styleId: 22677, attribution: cloudMadeAttribution }),
+                        var minimal = L.tileLayer(cloudmadeUrl, { styleId: 13180, attribution: cloudMadeAttribution }),
                         midnight = L.tileLayer(cloudmadeUrl, { styleId: 999, attribution: cloudMadeAttribution });
 
 
