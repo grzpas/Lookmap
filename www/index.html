@@ -18,10 +18,13 @@
     <script type="text/javascript" src="index.js"></script>
     <script type="text/javascript">
         document.addEventListener("deviceready", onDeviceReady, false);
-
+        var watchID = null;
         // once the device ready event fires, you can safely do your thing! -jm
         function onDeviceReady() {
             console.log(device.name);
+
+            var options = { enableHighAccuracy: true };
+            watchID = navigator.geolocation.watchPosition(onSuccess, onError, options);
 
             $.ajax({
                 url: "restaurants.json",
@@ -30,10 +33,6 @@
                 }
             })
                     .done(function (data) {
-
-                        navigator.notification.alert(
-                        'Demo aplikacji Lookmap', null, 'Notification', 'Done');
-                        
                         var addType = function (json, iconType) {
                             var layer = new L.LayerGroup();
                             for (var j = 0; j < json.length; j++) {
@@ -82,14 +81,37 @@
                         };
                         L.control.layers(baseLayers, overlays).addTo(map);
                     });
-               
-        }
+
+                }
+
+                function onSuccess(position) {
+                    $('#myLocation').innerHTML = "[" + position.coords.latitude + ", " + position.coords.longitude + "]";
+                }
+
+                // clear the watch that was started earlier
+                // 
+                function clearWatch() {
+                    if (watchID != null) {
+                        navigator.geolocation.clearWatch(watchID);
+                        watchID = null;
+                    }
+                }
+
+                // onError Callback receives a PositionError object
+                //
+                function onError(error) {
+                    navigator.notification.alert(
+                        error.message, null, 'Error', 'Ok');
+                }
     </script>
 </head>
     <body>
         <div id="home" data-role="page">
             <div data-role="content">
                 <div id="map"></div>
+            </div>
+            <div data-role="footer">
+                <div id="myLocation"></div>
             </div>
         </div>
     </body>
