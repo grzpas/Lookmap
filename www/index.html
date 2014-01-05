@@ -89,7 +89,8 @@
                 function onSuccess(position) {
                     var stringPosition = "[" + position.coords.latitude + ", " + position.coords.longitude + "]";
                     navigator.notification.alert(stringPosition, null, "Info", "Ok");
-                    $('#myLocation').innerHTML = stringPosition;
+                    var element = document.getElementById('geolocation');
+                    element.innerHTML = stringPosition;
                 }
 
                 // clear the watch that was started earlier
@@ -115,7 +116,7 @@
                 <div id="map"></div>
             </div>
             <div data-role="footer">
-                <div id="myLocation">My location</div>
+                <p id="geolocation">Sprawdzanie lokalizacji...</p>
             </div>
         </div>
     </body>
