@@ -24,7 +24,7 @@
             console.log(device.name);
 
             $.ajax({
-                url: "http://89.74.87.121:3000/restaurants.json",
+                url: "restaurants.json",
                 beforeSend: function (xhr) {
                     xhr.overrideMimeType("application/json");
                 }
@@ -85,9 +85,6 @@
 </head>
     <body>
         <div id="home" data-role="page">
-            <!--<div data-role="header">
-                 <a href="#dialogpage" data-rel="dialog" data-icon="user">Settings</a>
-            </div>-->
             <div data-role="content">
                 <div id="map"></div>
             </div>
