@@ -112,14 +112,23 @@
     </script>
 </head>
     <body>
-        <div data-role="header" data-position="fixed">
-            Lookmap
+        <div data-role="header" data-position="fixed" data-fullscreen="true">
+            <h1>Lookmap</h1>
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#" data-icon="home">Mapa</a></li>
+                    <li><a href="#" data-icon="arrow-r">Kluby</a></li>
+                    <li><a href="#" data-icon="search">Puby</a></li>
+                    <li><a href="#" data-icon="search">Usługi</a></li>
+                    <li><a href="#" data-icon="search">Rozrywka</a></li>
+                </ul>
+            </div>
         </div>
         <div id="home" data-role="page">
             <div data-role="content">
                 <div id="map"></div>
             </div>
-            <div data-role="footer" data-position="fixed">
+            <div data-role="footer" data-position="fixed" data-fullscreen="true">
                 Sprawdzanie lokalizacji...
             </div>
         </div>
