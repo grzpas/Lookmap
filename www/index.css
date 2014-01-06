@@ -12,6 +12,8 @@
     padding: 0;
 }
 
-#map {
+#map 
+{
+    min-height: 320px;
     height: 100%;
 }
