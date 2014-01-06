@@ -3,7 +3,7 @@
     height: 400px;
 }
 
-#menuHeader {
-    overflow: auto;
-    white-space: nowrap;
+#scrollBar {
+    width: 840px;
+    overflow-x: hidden;
 }
