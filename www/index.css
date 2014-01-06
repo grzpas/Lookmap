@@ -1,4 +1,6 @@
 ﻿#map 
 {
+    position: absolute;
+    top: 200px;
     height: 400px;
 }
