@@ -3,7 +3,15 @@
     height: 400px;
 }
 
-#scrollBar {
-    width: 840px;
-    overflow-x: hidden;
+.ui-content {
+    position: absolute;
+    top: 40px;
+    right: 0;
+    bottom: 40px;
+    left: 0;
+    padding: 0;
+}
+
+#map {
+    height: 100%;
 }
