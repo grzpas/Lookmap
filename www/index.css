@@ -2,3 +2,8 @@
 {
     height: 400px;
 }
+
+#menuHeader {
+    overflow: auto;
+    white-space: nowrap;
+}
