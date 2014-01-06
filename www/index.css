@@ -5,9 +5,9 @@
 
 .ui-content {
     position: absolute;
-    top: 60px;
+    top: 80px;
     right: 0;
-    bottom: 40px;
+    bottom: 0px;
     left: 0;
     padding: 0;
 }
