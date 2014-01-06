@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- This file is auto-generated, do not edit! -jm -->
 <GapSourceDictionary>
-    <FilePath Value="www\gp-test-theme.css"/>
+    <FilePath Value="www\config.xml"/>
+    <FilePath Value="www\index.css"/>
     <FilePath Value="www\index.html"/>
+    <FilePath Value="www\index.js"/>
     <FilePath Value="www\jquery-1.10.2.js"/>
     <FilePath Value="www\jquery.mobile-1.4.0.css"/>
     <FilePath Value="www\jquery.mobile-1.4.0.js"/>
@@ -12,8 +14,8 @@
     <FilePath Value="www\jsonsql-0.1.js"/>
     <FilePath Value="www\leaflet.css"/>
     <FilePath Value="www\leaflet.js"/>
-    <FilePath Value="www\map-icons.js"/>
-    <FilePath Value="www\phonegap-1.4.1.js"/>
+    <FilePath Value="www\phonegap.js"/>
+    <FilePath Value="www\restaurants.json"/>
     <FilePath Value="www\stopgap.js"/>
     <FilePath Value="www\images\ajax-loader.gif"/>
     <FilePath Value="www\images\layers-2x.png"/>
@@ -89,11 +91,8 @@
     <FilePath Value="www\images\icons-png\heart-white.png"/>
     <FilePath Value="www\images\icons-png\home-black.png"/>
     <FilePath Value="www\images\icons-png\home-white.png"/>
+    <FilePath Value="www\images\icons-png\icons.png"/>
     <FilePath Value="www\images\icons-png\info-black.png"/>
-    <FilePath Value="www\images\icons-png\info-white.png"/>
-    <FilePath Value="www\images\icons-png\leaf-green.png"/>
-    <FilePath Value="www\images\icons-png\leaf-orange.png"/>
-    <FilePath Value="www\images\icons-png\leaf-red.png"/>
     <FilePath Value="www\images\icons-png\leaf-shadow.png"/>
     <FilePath Value="www\images\icons-png\location-black.png"/>
     <FilePath Value="www\images\icons-png\location-white.png"/>
@@ -227,11 +226,25 @@
     <FilePath Value="www\images\icons-svg\user-white.svg"/>
     <FilePath Value="www\images\icons-svg\video-black.svg"/>
     <FilePath Value="www\images\icons-svg\video-white.svg"/>
-    <FilePath Value="www\leaflet-dvf\leaflet-dvf.js"/>
-    <FilePath Value="www\leaflet-dvf\leaflet-dvf.markers.js"/>
-    <FilePath Value="www\leaflet-dvf\leaflet-dvf.markers.min.js"/>
-    <FilePath Value="www\leaflet-dvf\leaflet-dvf.min.js"/>
-    <FilePath Value="www\leaflet-dvf\css\dvf.css"/>
-    <FilePath Value="www\leaflet-dvf\data\countryData.min.js"/>
-    <FilePath Value="www\leaflet-dvf\data\stateData.min.js"/>
+    <FilePath Value="www\leaflet-plugins\awesome-markers\leaflet.awesome-markers.css"/>
+    <FilePath Value="www\leaflet-plugins\awesome-markers\leaflet.awesome-markers.js"/>
+    <FilePath Value="www\leaflet-plugins\awesome-markers\leaflet.awesome-markers.min.js"/>
+    <FilePath Value="www\leaflet-plugins\awesome-markers\images\markers-matte.png"/>
+    <FilePath Value="www\leaflet-plugins\awesome-markers\images\markers-matte@2x.png"/>
+    <FilePath Value="www\leaflet-plugins\awesome-markers\images\markers-plain.png"/>
+    <FilePath Value="www\leaflet-plugins\awesome-markers\images\markers-shadow.png"/>
+    <FilePath Value="www\leaflet-plugins\awesome-markers\images\markers-shadow@2x.png"/>
+    <FilePath Value="www\leaflet-plugins\awesome-markers\images\markers-soft.png"/>
+    <FilePath Value="www\leaflet-plugins\awesome-markers\images\markers-soft@2x.png"/>
+    <FilePath Value="www\leaflet-plugins\locatecontrol\L.Control.Locate.0.5.css"/>
+    <FilePath Value="www\leaflet-plugins\locatecontrol\L.Control.Locate.css"/>
+    <FilePath Value="www\leaflet-plugins\locatecontrol\L.Control.Locate.ie.css"/>
+    <FilePath Value="www\leaflet-plugins\locatecontrol\L.Control.Locate.js"/>
+    <FilePath Value="www\leaflet-plugins\locatecontrol\images\locate.png"/>
+    <FilePath Value="www\leaflet-plugins\locatecontrol\images\locate.svg"/>
+    <FilePath Value="www\leaflet-plugins\locatecontrol\images\locate_alt.png"/>
+    <FilePath Value="www\leaflet-plugins\locatecontrol\images\locate_alt.svg"/>
+    <FilePath Value="www\leaflet-plugins\locatecontrol\images\locate_touch.png"/>
+    <FilePath Value="www\leaflet-plugins\locatecontrol\images\locate_touch_alt.png"/>
+    <FilePath Value="www\leaflet-plugins\locatecontrol\images\spinner.gif"/>
 </GapSourceDictionary>
