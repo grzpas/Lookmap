@@ -8,5 +8,10 @@
 
     window.PhoneGap = {};
     window.device = { phonegap: "In browser;" };
+    navigator.notification = {
+        alert: function (message, callback, title, buttonCaption) {
+            alert(message);
+        }
+    };
     deviceready();
 }
