@@ -57,11 +57,11 @@
                         midnight = L.tileLayer(cloudmadeUrl, { styleId: 999, attribution: cloudMadeAttribution });
 
 
-                        var restaurantsLayer = addType(jsonsql.query("select * from json where (type =='Restauracje')", data), L.AwesomeMarkers.icon({icon: 'spinner', prefix: 'fa', markerColor: 'red', spin:true}));
-                        var pubsLayer = addType(jsonsql.query("select * from json where (type =='Puby')", data), L.AwesomeMarkers.icon({ icon: 'coffee', prefix: 'fa', markerColor: 'red', iconColor: '#f28f82' }));
-                        var clubsLayer = addType(jsonsql.query("select * from json where (type =='Kluby')", data), L.AwesomeMarkers.icon({ icon: 'cog', prefix: 'fa', markerColor: 'purple', iconColor: 'black' }));
-                        var servicesLayer = addType(jsonsql.query("select * from json where (type =='Uslugi')", data), L.AwesomeMarkers.icon({ icon: 'glass', prefix: 'fa', markerColor: 'green' }));
-                        var entertainmentLayer = addType(jsonsql.query("select * from json where (type =='Rozrywka')", data), L.AwesomeMarkers.icon({ icon: 'shopping-cart', prefix: 'fa', markerColor: 'blue' }));
+                        var restaurantsLayer = addType(jsonsql.query("select * from json where (type =='Restauracje')", data), L.AwesomeMarkers.icon({ icon: 'cutlery', prefix: 'fa', markerColor: 'red'}));
+                        var pubsLayer = addType(jsonsql.query("select * from json where (type =='Puby')", data), L.AwesomeMarkers.icon({ icon: 'coffee', prefix: 'fa', markerColor: 'red', iconColor: 'yellow' }));
+                        var clubsLayer = addType(jsonsql.query("select * from json where (type =='Kluby')", data), L.AwesomeMarkers.icon({ icon: 'music', prefix: 'fa', markerColor: 'purple', iconColor: 'black' }));
+                        var servicesLayer = addType(jsonsql.query("select * from json where (type =='Uslugi')", data), L.AwesomeMarkers.icon({ icon: 'thumbs-up', prefix: 'fa', markerColor: 'green' }));
+                        var entertainmentLayer = addType(jsonsql.query("select * from json where (type =='Rozrywka')", data), L.AwesomeMarkers.icon({ icon: 'star-o', prefix: 'fa', markerColor: 'blue' }));
 
                         var map = L.map('map', {
                             center: [50.05185, 19.96195],
@@ -78,7 +78,7 @@
 
                         var overlays = {
                             "Restauracje": restaurantsLayer,
-                            "Puby": pubsLayer,
+                            "Puby i kawiarnie": pubsLayer,
                             "Kluby": clubsLayer,
                             "Usługi": servicesLayer,
                             "Rozrywka": entertainmentLayer
@@ -120,7 +120,7 @@
                     <li><a href="#" data-icon="home" class="ui-btn-active">Mapa</a></li>
                     <li><a href="#" data-icon="home">Restauracje</a></li>
                     <li><a href="#" data-icon="arrow-r">Kluby</a></li>
-                    <li><a href="#" data-icon="search">Puby</a></li>
+                    <li><a href="#" data-icon="search">Puby i kawiarnie</a></li>
                     <li><a href="#" data-icon="search">Rozrywka</a></li>
                 </ul>
             </div>
