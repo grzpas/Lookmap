@@ -362,6 +362,7 @@
     <Content Include="www\leaflet-plugins\locatecontrol\L.Control.Locate.js" />
     <Content Include="www\leaflet.js" />
     <Content Include="www\leaflet.css" />
+    <Content Include="www\lookmap.css" />
     <Content Include="www\phonegap.js" />
     <Content Include="www\stopgap.js" />
     <None Include="ManifestProcessor.js" />
