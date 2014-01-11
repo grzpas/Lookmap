@@ -222,6 +222,7 @@
     <Resource Include="www\images\icons-png\icons.png" />
     <Content Include="www\index.css" />
     <Content Include="www\index.js" />
+    <Content Include="www\jquery-plugins\HTMLed.js" />
     <Content Include="www\jsonsql-0.1.js" />
     <Content Include="www\images\icons-svg\action-black.svg" />
     <Content Include="www\images\icons-svg\action-white.svg" />

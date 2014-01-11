@@ -12,8 +12,9 @@
     <link rel="stylesheet" href="leaflet-plugins/locatecontrol/L.Control.Locate.css" />
     <script type="text/javascript" src="jquery-1.10.2.js"></script> 
     <script type="text/javascript" src="jquery.mobile-1.4.0.js"></script>
-    <script type="text/javascript" src="phonegap.js"></script>
-    <!--<script type="text/javascript" src="stopgap.js"></script>-->
+    <script type="text/javascript" src="jquery-plugins/HTMLed.js"></script>
+    <!--<script type="text/javascript" src="phonegap.js"></script>-->
+    <script type="text/javascript" src="stopgap.js"></script>
     <script type="text/javascript" src="leaflet.js"></script>
     <script type="text/javascript" src="leaflet-plugins/awesome-markers/leaflet.awesome-markers.js"></script>
     <script type="text/javascript" src="leaflet-plugins/locatecontrol/L.Control.Locate.js" ></script>
@@ -29,7 +30,7 @@
             watchID = navigator.geolocation.watchPosition(onWatchPositionSuccess, onWatchPositionError, options);
 
             $.ajax({
-                url: "restaurants.json",
+                url: "http://89.74.87.121:3000/restaurants.json",
                 beforeSend: function (xhr) {
                     xhr.overrideMimeType("application/json");
                 }
@@ -63,7 +64,7 @@
                         var servicesLayer = addType(jsonsql.query("select * from json where (type =='Uslugi')", data), L.AwesomeMarkers.icon({ icon: 'thumbs-up', prefix: 'fa', markerColor: 'green' }));
                         var entertainmentLayer = addType(jsonsql.query("select * from json where (type =='Rozrywka')", data), L.AwesomeMarkers.icon({ icon: 'star-o', prefix: 'fa', markerColor: 'blue' }));
 
-                        var map = L.map('mapView', {
+                        var map = L.map('map', {
                             center: [50.05185, 19.96195],
                             zoom: 11,
                             layers: [minimal, restaurantsLayer, pubsLayer, clubsLayer, servicesLayer, entertainmentLayer]
@@ -126,7 +127,7 @@
                 </div>
             </div>
             <div data-role="content" data-position="fixed">
-                <div id="mapView"></div>
+                <div id="map"></div>
             </div>
             <div id="geolocation" data-role="footer" data-position="fixed" data-fullscreen="false">
                 Sprawdzanie bieżącej lokalizacji ...
@@ -147,7 +148,7 @@
             </div>
             <div data-role="content" data-position="fixed">
                 <div id="restaurantsView">
-                    <ul data-role="listview" data-inset="true" data-filter="true">
+                    <ul data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="Filtruj pozycje..." >
                         <li>Restaurant1</li>
                         <li>Restaurant2</li>
                     </ul>
@@ -159,7 +160,7 @@
         </div>
            
     </body>
-    <!--<script type="text/javascript">
+    <script type="text/javascript">
         StopGap();
-    </script>-->
+    </script>
 </html>
