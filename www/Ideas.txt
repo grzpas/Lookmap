@@ -1,0 +1,2 @@
+﻿1. Map should be removed from the regular menu. 
+2. 
