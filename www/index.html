@@ -112,14 +112,14 @@
     </script>
 </head>
     <body>
-        <div id="home" data-role="page" data-title="Mapa">
+        <div id="mappage" data-role="page" data-title="Mapa">
             <div id="menuHeader" data-role="header" data-position="fixed" data-fullscreen="false">
                 <h1>Lookmap Kraków</h1> 
                 <div data-role="navbar">
                     <ul>
-                        <li><a href="#" data-icon="home" data-transition="slideup" class="ui-btn-active ui-state-persist">Mapa</a></li>
-                        <li><a href="#restaurants" data-icon="home">Restauracje</a></li>
-                        <li><a href="#clubs" data-icon="arrow-r">Kluby</a></li>
+                        <li><a href="#" data-icon="home" data-transition="slideup" class="ui-btn-active">Mapa</a></li>
+                        <li><a href="#restaurantspage" data-icon="home">Restauracje</a></li>
+                        <li><a href="#" data-icon="arrow-r">Kluby</a></li>
                         <li><a href="#" data-icon="search">Puby i kawiarnie</a></li>
                         <li><a href="#" data-icon="search">Rozrywka</a></li>
                     </ul>
@@ -132,17 +132,21 @@
                 Sprawdzanie bieżącej lokalizacji ...
             </div>
         </div>
-        <div id="restaurants" data-role="page" data-title="Restauracje">
+        <div id="restaurantspage" data-role="page" data-title="Restauracje">
             <div data-role="header" data-position="fixed" data-fullscreen="false">
                 <h1>Restauracje</h1> 
             </div>
+            <div data-role="navbar">
+                    <ul>
+                        <li><a href="#mappage" data-icon="home">Mapa</a></li>
+                        <li><a href="#restaurantspage" data-icon="home" data-transition="slideup" class="ui-btn-active">Restauracje</a></li>
+                        <li><a href="#" data-icon="arrow-r">Kluby</a></li>
+                        <li><a href="#" data-icon="search">Puby i kawiarnie</a></li>
+                        <li><a href="#" data-icon="search">Rozrywka</a></li>
+                    </ul>
+                </div>
         </div>
-        <div id="clubs" data-role="page" data-title="Kluby">
-            <div data-role="header" data-position="fixed" data-fullscreen="false">
-                <h1>Kluby</h1> 
-            </div>
-        </div>
-            
+           
     </body>
     <!--<script type="text/javascript">
         StopGap();
