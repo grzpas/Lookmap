@@ -220,6 +220,7 @@
       <SubType>Designer</SubType>
     </Content>
     <Resource Include="www\images\icons-png\icons.png" />
+    <Content Include="www\Ideas.txt" />
     <Content Include="www\index.css" />
     <Content Include="www\index.js" />
     <Content Include="www\jquery-plugins\HTMLed.js" />
