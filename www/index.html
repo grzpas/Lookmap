@@ -92,17 +92,18 @@
 
                 };
 
-                var updateItems = function () {
-                    $("#itemView").html($("#itemTemplate").render(data)).listview();
+                var updateItems = function (viewId, items) {
+                    $(viewId).html($("#itemTemplate").render(items)).listview();
+                    //viewId.listview("refresh");
                     console.log("updateItems: " + data);
                 };
 
                 updateMap();
-                updateItems();
+                updateItems("#restaurantsView", restaurants);
+                updateItems("#clubsView", clubs);
             };
 
             $.getJSON("http://89.74.87.121:3000/restaurants.json").then(updateData);
-
 
             //java script module
             (function () {
@@ -122,7 +123,7 @@
                         error.message, null, 'Error', 'Ok');
                 }
 
-                $(document).bind("pageinit", function () {
+                $(document).on("pageinit", function () {          
                     console.log("pageinit");
                 });
             } ());
@@ -132,7 +133,7 @@
     </script>
     <script type="text/x-jsrender" id="itemTemplate">
        <li>
-       {{:name}}
+       <a href="#"> {{:name}}</a>
        </li>
     </script>
 </head>
@@ -144,7 +145,7 @@
                     <ul>
                         <li><a href="#mapPage" data-transition="flip" class="ui-btn-active">Mapa</a></li>
                         <li><a href="#restaurantsPage">Restauracje</a></li>
-                        <li><a href="#">Kluby</a></li>
+                        <li><a href="#clubsPage">Kluby</a></li>
                     </ul>
                 </div>
             </div>
@@ -155,7 +156,8 @@
                 Sprawdzanie bieżącej lokalizacji ...
             </div>
         </div>
-                <div id="restaurantsPage" data-role="page" data-title="Restauracje">
+
+        <div id="restaurantsPage" data-role="page" data-title="Restauracje">
             <div data-role="header" data-position="fixed" data-fullscreen="false">
                 <h1>Lookmap Kraków</h1> 
             </div>
@@ -163,16 +165,33 @@
                 <ul>
                     <li><a href="#mapPage">Mapa</a></li>
                     <li><a href="#restaurantsPage">Restauracje</a></li>
-                    <li><a href="#">Kluby</a></li>
+                    <li><a href="#clubsPage">Kluby</a></li>
                 </ul>
             </div>
             <div data-role="content" data-position="fixed">
-                <div id="restaurantsView">
-                    <ul id="itemView" data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="Filtruj pozycje..." >
-                        
-                    </ul>
-                </div>
+                <ul id="restaurantsView" data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="Filtruj pozycje..." >   
+                </ul>
             </div>
+            <div data-role="footer" data-position="fixed" data-fullscreen="false">
+                Dołącz do nas ...
+            </div>
+        </div>
+
+         <div id="clubsPage" data-role="page" data-title="Kluby">
+            <div data-role="header" data-position="fixed" data-fullscreen="false">
+                <h1>Lookmap Kraków</h1> 
+            </div>
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#mapPage">Mapa</a></li>
+                    <li><a href="#restaurantsPage">Restauracje</a></li>
+                    <li><a href="#clubsPage">Kluby</a></li>
+                </ul>
+            </div>
+             <div data-role="content" data-position="fixed">
+                <ul id="clubsView" data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="Filtruj pozycje..." >
+                </ul>
+             </div>
             <div data-role="footer" data-position="fixed" data-fullscreen="false">
                 Dołącz do nas ...
             </div>
