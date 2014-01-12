@@ -99,8 +99,8 @@
                 };
 
                 updateMap();
-                //updateItems("#restaurantsView", restaurants);
-                //updateItems("#clubsView", clubs);
+                updateItems("#restaurantsView", restaurants);
+                updateItems("#clubsView", clubs);
             };
 
             $.getJSON("http://89.74.87.121:3000/restaurants.json").then(updateData);
