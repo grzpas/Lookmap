@@ -2,6 +2,7 @@
 <!-- This file is auto-generated, do not edit! -jm -->
 <GapSourceDictionary>
     <FilePath Value="www\config.xml"/>
+    <FilePath Value="www\Ideas.txt"/>
     <FilePath Value="www\index.css"/>
     <FilePath Value="www\index.html"/>
     <FilePath Value="www\index.js"/>
@@ -12,8 +13,10 @@
     <FilePath Value="www\jquery.mobile.structure-1.4.0.css"/>
     <FilePath Value="www\jquery.mobile.theme-1.4.0.css"/>
     <FilePath Value="www\jsonsql-0.1.js"/>
+    <FilePath Value="www\jsrender.js"/>
     <FilePath Value="www\leaflet.css"/>
     <FilePath Value="www\leaflet.js"/>
+    <FilePath Value="www\lookmap.css"/>
     <FilePath Value="www\phonegap.js"/>
     <FilePath Value="www\restaurants.json"/>
     <FilePath Value="www\stopgap.js"/>
@@ -226,6 +229,7 @@
     <FilePath Value="www\images\icons-svg\user-white.svg"/>
     <FilePath Value="www\images\icons-svg\video-black.svg"/>
     <FilePath Value="www\images\icons-svg\video-white.svg"/>
+    <FilePath Value="www\jquery-plugins\HTMLed.js"/>
     <FilePath Value="www\leaflet-plugins\awesome-markers\leaflet.awesome-markers.css"/>
     <FilePath Value="www\leaflet-plugins\awesome-markers\leaflet.awesome-markers.js"/>
     <FilePath Value="www\leaflet-plugins\awesome-markers\leaflet.awesome-markers.min.js"/>
