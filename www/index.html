@@ -13,96 +13,106 @@
     <link rel="stylesheet" href="leaflet-plugins/locatecontrol/L.Control.Locate.css" />
     <script type="text/javascript" src="jquery-1.10.2.js"></script> 
     <script type="text/javascript" src="jquery.mobile-1.4.0.js"></script>
-    <script type="text/javascript" src="jquery-plugins/HTMLed.js"></script>
+    <script type="text/javascript" src="jsrender.js"></script>
+    <!--<script type="text/javascript" src="jquery-plugins/HTMLed.js"></script>-->
     <script type="text/javascript" src="phonegap.js"></script>
-    <!--<script type="text/javascript" src="stopgap.js"></script>-->
+    <script type="text/javascript" src="stopgap.js"></script>
     <script type="text/javascript" src="leaflet.js"></script>
     <script type="text/javascript" src="leaflet-plugins/awesome-markers/leaflet.awesome-markers.js"></script>
     <script type="text/javascript" src="leaflet-plugins/locatecontrol/L.Control.Locate.js" ></script>
     <script type="text/javascript" src="jsonsql-0.1.js"></script>
     <script type="text/javascript" src="index.js"></script>
     <script type="text/javascript">
+        
         document.addEventListener("deviceready", onDeviceReady, false);
         var watchID = null;
+
         function onDeviceReady() {
-            console.log(device.name);
 
-            var options = { enableHighAccuracy: true };
-            watchID = navigator.geolocation.watchPosition(onWatchPositionSuccess, onWatchPositionError, options);
+            //Update Map
+            var updateData = function (data) {
+                console.log("updateData: " + data);  
 
-            $.ajax({
-                url: "http://89.74.87.121:3000/restaurants.json",
-                beforeSend: function (xhr) {
-                    xhr.overrideMimeType("application/json");
-                }
-            })
-                    .done(function (data) {
-                        var addType = function (json, iconType) {
-                            var layer = new L.LayerGroup();
-                            for (var j = 0; j < json.length; j++) {
-                                var longtitude = json[j].longitude;
-                                var latitude = json[j].latitude;
-                                var name = json[j].name;
-                                var geoLink = "<a href='geo:{latitude},{longtitude}'>{n}</a>".format({ longtitude: longtitude, latitude: latitude, n: name });
-                                if (iconType !== undefined) {
-                                    L.marker([latitude, longtitude], { icon: iconType }).bindPopup(geoLink).addTo(layer);
-                                }
-                                else {
-                                    L.marker([latitude, longtitude]).bindPopup(geoLink).addTo(layer);
-                                }
+                var restaurants = jsonsql.query("select * from json where (type =='Restauracje')", data);
+                var pubs = jsonsql.query("select * from json where (type =='Puby')", data);
+                var clubs = jsonsql.query("select * from json where (type =='Kluby')", data);
+                var services = jsonsql.query("select * from json where (type =='Uslugi')", data);
+                var entertainment = jsonsql.query("select * from json where (type =='Rozrywka')", data);
+
+                var updateMap = function () {
+
+                    var addNewLayer = function (json, iconType) {
+                        var layer = new L.LayerGroup();
+                        for (var j = 0; j < json.length; j++) {
+                            var longtitude = json[j].longitude;
+                            var latitude = json[j].latitude;
+                            var name = json[j].name;
+                            var geoLink = "<a href='geo:{latitude},{longtitude}'>{n}</a>".format({ longtitude: longtitude, latitude: latitude, n: name });
+                            if (iconType !== undefined) {
+                                L.marker([latitude, longtitude], { icon: iconType }).bindPopup(geoLink).addTo(layer);
+                            } else {
+                                L.marker([latitude, longtitude]).bindPopup(geoLink).addTo(layer);
                             }
-                            return layer;
-                        };
-                        var cloudMadeAttribution = 'CloudMade';
-                        var cloudmadeUrl = 'http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/{styleId}/256/{z}/{x}/{y}.png';
-                        var minimal = L.tileLayer(cloudmadeUrl, { styleId: 13180, attribution: cloudMadeAttribution }),
-                        midnight = L.tileLayer(cloudmadeUrl, { styleId: 999, attribution: cloudMadeAttribution });
+                        }
+                        return layer;
+                    };
+                    var cloudMadeAttribution = 'CloudMade';
+                    var cloudmadeUrl = 'http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/{styleId}/256/{z}/{x}/{y}.png';
+                    var minimal = L.tileLayer(cloudmadeUrl, { styleId: 13180, attribution: cloudMadeAttribution }),
+                    midnight = L.tileLayer(cloudmadeUrl, { styleId: 999, attribution: cloudMadeAttribution });
 
 
-                        var restaurantsLayer = addType(jsonsql.query("select * from json where (type =='Restauracje')", data), L.AwesomeMarkers.icon({ icon: 'cutlery', prefix: 'fa', markerColor: 'red'}));
-                        var pubsLayer = addType(jsonsql.query("select * from json where (type =='Puby')", data), L.AwesomeMarkers.icon({ icon: 'coffee', prefix: 'fa', markerColor: 'red', iconColor: 'yellow' }));
-                        var clubsLayer = addType(jsonsql.query("select * from json where (type =='Kluby')", data), L.AwesomeMarkers.icon({ icon: 'music', prefix: 'fa', markerColor: 'purple', iconColor: 'black' }));
-                        var servicesLayer = addType(jsonsql.query("select * from json where (type =='Uslugi')", data), L.AwesomeMarkers.icon({ icon: 'thumbs-up', prefix: 'fa', markerColor: 'green' }));
-                        var entertainmentLayer = addType(jsonsql.query("select * from json where (type =='Rozrywka')", data), L.AwesomeMarkers.icon({ icon: 'star-o', prefix: 'fa', markerColor: 'blue' }));
+                    var restaurantsLayer = addNewLayer(restaurants, L.AwesomeMarkers.icon({ icon: 'cutlery', prefix: 'fa', markerColor: 'red' }));
+                    var pubsLayer = addNewLayer(pubs, L.AwesomeMarkers.icon({ icon: 'coffee', prefix: 'fa', markerColor: 'red', iconColor: 'yellow' }));
+                    var clubsLayer = addNewLayer(clubs, L.AwesomeMarkers.icon({ icon: 'music', prefix: 'fa', markerColor: 'purple', iconColor: 'black' }));
+                    var servicesLayer = addNewLayer(services, L.AwesomeMarkers.icon({ icon: 'thumbs-up', prefix: 'fa', markerColor: 'green' }));
+                    var entertainmentLayer = addNewLayer(entertainment, L.AwesomeMarkers.icon({ icon: 'star-o', prefix: 'fa', markerColor: 'blue' }));
 
-                        var map = L.map('map', {
-                            center: [50.05185, 19.96195],
-                            zoom: 11,
-                            layers: [minimal, restaurantsLayer, pubsLayer, clubsLayer, servicesLayer, entertainmentLayer]
-                        });
-
-                        L.control.locate().addTo(map);
-
-                        var baseLayers = {
-                            "Minimalny": minimal,
-                            "Widok nocny": midnight
-                        };
-
-                        var overlays = {
-                            "Restauracje": restaurantsLayer,
-                            "Puby i kawiarnie": pubsLayer,
-                            "Kluby": clubsLayer,
-                            "Usługi": servicesLayer,
-                            "Rozrywka": entertainmentLayer
-                        };
-                        L.control.layers(baseLayers, overlays).addTo(map);
+                    var map = L.map('map', {
+                        center: [50.05185, 19.96195],
+                        zoom: 11,
+                        layers: [minimal, restaurantsLayer, pubsLayer, clubsLayer, servicesLayer, entertainmentLayer]
                     });
 
-                }
+                    L.control.locate().addTo(map);
+
+                    var baseLayers = {
+                        "Minimalny": minimal,
+                        "Widok nocny": midnight
+                    };
+
+                    var overlays = {
+                        "Restauracje": restaurantsLayer,
+                        "Puby i kawiarnie": pubsLayer,
+                        "Kluby": clubsLayer,
+                        "Usługi": servicesLayer,
+                        "Rozrywka": entertainmentLayer
+                    };
+                    L.control.layers(baseLayers, overlays).addTo(map);
+
+                };
+
+                var updateItems = function () {
+                    $("#itemView").html($("#itemTemplate").render(data)).listview();
+                    console.log("updateItems: " + data);
+                };
+
+                updateMap();
+                updateItems();
+            };
+
+            $.getJSON("http://89.74.87.121:3000/restaurants.json").then(updateData);
+
+
+            //java script module
+            (function () {
+                var options = { enableHighAccuracy: true };
+                watchID = navigator.geolocation.watchPosition(onWatchPositionSuccess, onWatchPositionError, options);
 
                 function onWatchPositionSuccess(position) {
                     var stringPosition = "[" + position.coords.latitude + ", " + position.coords.longitude + "]";
                     var element = document.getElementById('geolocation');
                     element.innerHTML = stringPosition;
-                }
-
-                // clear the watch that was started earlier
-                // 
-                function clearWatch() {
-                    if (watchID != null) {
-                        navigator.geolocation.clearWatch(watchID);
-                        watchID = null;
-                    }
                 }
 
                 // onError Callback receives a PositionError object
@@ -111,6 +121,19 @@
                     navigator.notification.alert(
                         error.message, null, 'Error', 'Ok');
                 }
+
+                $(document).bind("pageinit", function () {
+                    console.log("pageinit");
+                });
+            } ());
+
+        }
+
+    </script>
+    <script type="text/x-jsrender" id="itemTemplate">
+       <li>
+       {{:name}}
+       </li>
     </script>
 </head>
     <body>
@@ -132,7 +155,7 @@
                 Sprawdzanie bieżącej lokalizacji ...
             </div>
         </div>
-        <div id="restaurantsPage" data-role="page" data-title="Restauracje">
+                <div id="restaurantsPage" data-role="page" data-title="Restauracje">
             <div data-role="header" data-position="fixed" data-fullscreen="false">
                 <h1>Lookmap Kraków</h1> 
             </div>
@@ -145,9 +168,8 @@
             </div>
             <div data-role="content" data-position="fixed">
                 <div id="restaurantsView">
-                    <ul data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="Filtruj pozycje..." >
-                        <li>Restaurant1</li>
-                        <li>Restaurant2</li>
+                    <ul id="itemView" data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="Filtruj pozycje..." >
+                        
                     </ul>
                 </div>
             </div>
@@ -155,7 +177,6 @@
                 Dołącz do nas ...
             </div>
         </div>
-           
     </body>
     <!--<script type="text/javascript">
         StopGap();
