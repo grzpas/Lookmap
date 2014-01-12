@@ -39,6 +39,12 @@
                 var services = jsonsql.query("select * from json where (type =='Uslugi')", data);
                 var entertainment = jsonsql.query("select * from json where (type =='Rozrywka')", data);
 
+                var updateItems = function (viewId, items) {
+                    $(viewId).html($("#itemTemplate").render(items)).listview();
+                    //viewId.listview("refresh");
+                    console.log("updateItems: " + data);
+                };
+
                 var updateMap = function () {
 
                     var addNewLayer = function (json, iconType) {
@@ -92,11 +98,7 @@
 
                 };
 
-                var updateItems = function (viewId, items) {
-                    $(viewId).html($("#itemTemplate").render(items)).listview();
-                    //viewId.listview("refresh");
-                    console.log("updateItems: " + data);
-                };
+               
 
                 updateMap();
                 updateItems("#restaurantsView", restaurants);
