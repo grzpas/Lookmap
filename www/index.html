@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>Lookmap</title>
-	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0" />
     <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
     <link rel="stylesheet" href="jquery.mobile-1.4.0.css"/>
     <!--<link rel="stylesheet" href="lookmap.css"/>-->
@@ -11,12 +11,13 @@
     <link rel="stylesheet" href="leaflet-plugins/awesome-markers/font-awesome/css/font-awesome.css"/>
     <link rel="stylesheet" href="leaflet-plugins/awesome-markers/leaflet.awesome-markers.css">
     <link rel="stylesheet" href="leaflet-plugins/locatecontrol/L.Control.Locate.css" />
+    <script src="http://89.74.87.121:3000/target/target-script-min.js#anonymous"></script>
     <script type="text/javascript" src="jquery-1.10.2.js"></script> 
     <script type="text/javascript" src="jquery.mobile-1.4.0.js"></script>
     <script type="text/javascript" src="jsrender.js"></script>
     <!--<script type="text/javascript" src="jquery-plugins/HTMLed.js"></script>-->
-    <script type="text/javascript" src="phonegap.js"></script>
-    <!--<script type="text/javascript" src="stopgap.js"></script>-->
+    <!--<script type="text/javascript" src="phonegap.js"></script>-->
+    <script type="text/javascript" src="stopgap.js"></script>
     <script type="text/javascript" src="leaflet.js"></script>
     <script type="text/javascript" src="leaflet-plugins/awesome-markers/leaflet.awesome-markers.js"></script>
     <script type="text/javascript" src="leaflet-plugins/locatecontrol/L.Control.Locate.js" ></script>
@@ -41,7 +42,6 @@
 
                 var updateItems = function (viewId, items) {
                     $(viewId).html($("#itemTemplate").render(items)).listview();
-                    //viewId.listview("refresh");
                     console.log("updateItems: " + data);
                 };
 
@@ -98,14 +98,12 @@
 
                 };
 
-               
-
                 updateMap();
                 updateItems("#restaurantsView", restaurants);
                 updateItems("#clubsView", clubs);
             };
 
-            $.getJSON("restaurants.json").then(updateData);
+            $.getJSON("http://89.74.87.121:3000/restaurants.json").then(updateData);
 
             //java script module
             (function () {
@@ -141,7 +139,7 @@
 </head>
     <body>
         <div id="mapPage" data-role="page" data-title="Mapa">
-            <div id="menuHeader" data-role="header" data-position="fixed" data-fullscreen="false">
+            <div data-role="header" data-position="fixed" data-fullscreen="false">
                 <h1>Lookmap Kraków</h1> 
                 <div data-role="navbar">
                     <ul>
@@ -161,14 +159,6 @@
 
         <div id="restaurantsPage" data-role="page" data-title="Restauracje">
             <div data-role="header" data-position="fixed" data-fullscreen="false">
-                <h1>Lookmap Kraków</h1> 
-            </div>
-            <div data-role="navbar">
-                <ul>
-                    <li><a href="#mapPage">Mapa</a></li>
-                    <li><a href="#restaurantsPage">Restauracje</a></li>
-                    <li><a href="#clubsPage">Kluby</a></li>
-                </ul>
             </div>
             <div data-role="content" data-position="fixed">
                 <ul id="restaurantsView" data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="Filtruj pozycje..." >   
@@ -181,14 +171,6 @@
 
          <div id="clubsPage" data-role="page" data-title="Kluby">
             <div data-role="header" data-position="fixed" data-fullscreen="false">
-                <h1>Lookmap Kraków</h1> 
-            </div>
-            <div data-role="navbar">
-                <ul>
-                    <li><a href="#mapPage">Mapa</a></li>
-                    <li><a href="#restaurantsPage">Restauracje</a></li>
-                    <li><a href="#clubsPage">Kluby</a></li>
-                </ul>
             </div>
              <div data-role="content" data-position="fixed">
                 <ul id="clubsView" data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="Filtruj pozycje..." >
@@ -199,7 +181,7 @@
             </div>
         </div>
     </body>
-    <!--<script type="text/javascript">
+    <script type="text/javascript">
         StopGap();
-    </script>-->
+    </script>
 </html>
